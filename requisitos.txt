@@ -1,0 +1,5 @@
+itens do qrcode:
+    nome do evento
+    local
+    data
+    hora
