@@ -8,15 +8,15 @@ fi
 
 input="$1"
 
-while SPLITTER=';' read -r LINE
+while IFS=';' read -r LINE
 do
-	SPLITTER=';' read -ra INFO <<< "$LINE"
+	IFS=';' read -ra INFO <<< "$LINE"
 
-	CHAVE=`echo -n "$line" | openssl sha1 -hmac $2`
-	SPLITTER=' ' read -ra CHAVE <<< "$CHAVE"
+	CHAVE=`echo -n "$LINE" | openssl sha1 -hmac $2`
+	IFS=' ' read -ra CHAVE <<< "$CHAVE"
+    echo ${CHAVE[1]}
+	sqlite3 database.db "INSERT INTO eventos(codigo, nome, data, hora_inicio, hora_fim, obs) values ('${CHAVE[1]}', '${INFO[0]}', '${INFO[1]}', ${INFO[2]}, ${INFO[3]}, '${INFO[4]}');"
 
-	sqlite eventos_db "insert into eventos(codigo, nome, data, hora_inicio, hora_fim, observacoes) values ('${chave[1]}', '${INFO[0]}', '${INFO[1]}', ${INFO[2]}, ${INFO[3]}, '${INFO[4]}');"
-
-	qrencode -o "${INFO[0]}.png" "127.0.0.1:5000-${chave[1]}"
+	qrencode -o "${INFO[0]}.png" "127.0.0.1:5000&${CHAVE[1]}"
 
 done < "$input"

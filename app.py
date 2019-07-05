@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request
-from models import create_post, get_posts
+from models import create_presenca, get_presencas
 
 app = Flask(__name__)
 
@@ -10,12 +10,12 @@ def index():
     
     if request.method == "POST":
         nome = request.form.get("nome")
-        local = request.form.get("local")
-        data = request.form.get("data")
-        hora = request.form.get("hora")
-        create_post(nome,local,data,hora)
-    eventos = get_posts()
-    return render_template("index.html", eventos=eventos)
+        email = request.form.get("email")
+        code = request.form.get("code")
+        create_presenca(nome, email, code)
+        
+    presencas = get_presencas()
+    return render_template("index.html", presencas=presencas)
 
 
 if __name__ == "__main__":
