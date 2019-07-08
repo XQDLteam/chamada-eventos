@@ -15,7 +15,7 @@ do
     fi
 done
 echo -n "Creating a virtual enviroment.."
-virtualenv flask
+virtualenv -p python3 flask
 source flask/bin/activate
 echo "Done!!"
 cd scripts/
