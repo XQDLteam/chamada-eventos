@@ -22,7 +22,7 @@ Script para computar lista de presenças em eventos
 
 #### Para criar o banco e inicialiar:
 
-$ `bash execute.sh <chave>`
+$ `bash execute.sh <hmac-key>`
 
 #### Para executar o simulador do app do cliente:
 
