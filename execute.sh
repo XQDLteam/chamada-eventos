@@ -4,7 +4,7 @@
 
 KEY=$1
 
-for CMD in qrencode sqlite3 zbarimg xterm virtualenv
+for CMD in qrencode sqlite3 zbarimg xterm virtualenv curl
 
 do
     if [ ! `which $CMD` ]
