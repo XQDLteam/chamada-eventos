@@ -20,7 +20,7 @@ source flask/bin/activate
 echo "Done!!"
 cd scripts/
 echo "Stalling python dependences..."
-pip3 install -r requirements.txt #&>/dev/null
+pip3 install -r requirements.txt &>/dev/null
 echo "Done!"
 echo -n "Creating database... "
 bash create-db.sh
