@@ -3,6 +3,8 @@
 Script para computar lista de presenças em eventos
 
 ## pre-requisitos
+
+* python3
     
 * zbar-tools 
     
