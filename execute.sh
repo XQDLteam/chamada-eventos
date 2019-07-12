@@ -25,7 +25,7 @@ echo "Done!"
 echo -n "Creating database... "
 bash create-db.sh
 echo "database.sb Done!"
-echo -n "Adding fake events... "
+echo -n "Adding test events... "
 bash init-events.sh eventos.csv $KEY
 echo "Done!"
 echo -n "Starting server..."
